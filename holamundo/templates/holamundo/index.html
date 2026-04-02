@@ -1,0 +1,17 @@
+{% extends 'holamundo/base.html' %}
+
+{% block body %}
+    <h1>ESTA ES LA PAGINA DE SALUDO HOLA <span>{{nombre}}</span></h1>
+     {% if edad >= 18 %}
+        <p>Es mayor de edad</p>
+    
+     {% endif %}
+     {% if mascota %}
+        <p>Tiene mascotas</p>
+        <ul>
+            {% for m in mascota %}
+                <li>{{m}}</li>
+            {% endfor %}
+        </ul>
+     {% endif %}
+{% endblock %}

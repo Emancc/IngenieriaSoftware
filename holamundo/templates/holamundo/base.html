@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'holamundo/styles.css' %}">
+    <title>Document</title> 
+</head>
+<body>
+    <nav class="navegador">
+        <h2>NAVEGADOR</h2>
+        <a href="{%url 'saludo'%}">Saludo</a>
+        <a href="{% url 'despedida' %}">Despedida</a>
+    </nav>
+    {% block body %}
+    <!-- Contenido específico de cada página -->
+    {% endblock %}
+</body>
+</html>
