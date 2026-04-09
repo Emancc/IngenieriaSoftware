@@ -2,16 +2,12 @@
 
 {% block body %}
     <h1>ESTA ES LA PAGINA DE SALUDO HOLA <span>{{nombre}}</span></h1>
-     {% if edad >= 18 %}
-        <p>Es mayor de edad</p>
-    
-     {% endif %}
-     {% if mascota %}
-        <p>Tiene mascotas</p>
-        <ul>
-            {% for m in mascota %}
-                <li>{{m}}</li>
-            {% endfor %}
-        </ul>
-     {% endif %}
+    <h2>Estas son todas las tareas:</h2>
+    <ul>
+        {% for tarea in tareas %}
+            <li>{{tarea}}</li>
+        {% endfor %}
+    </ul>
+
+    <p>fin</p>
 {% endblock %}
