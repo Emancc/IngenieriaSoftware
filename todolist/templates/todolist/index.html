@@ -1,0 +1,12 @@
+{% extends 'holamundo/base.html' %}
+<!-- url/tareas-->
+{% block body %}
+<h1>Lista de Tareas</h1>
+<ul>
+  {% for tarea in tareas %}
+  <li>{{tarea.nombre}} - {{tarea.completada}}</li>
+  <li>Responsable: {{tarea.responsable.username}} - {{tarea.etiquetas}}</li>
+  <hr />
+  {% endfor %}
+</ul>
+{% endblock %}
