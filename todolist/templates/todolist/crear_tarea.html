@@ -1,0 +1,11 @@
+{% extends 'holamundo/base.html' %}
+<!-- url/tareas-->
+{% block body %}
+<h1>Crear Tarea</h1>
+<form method="post">
+    {%csrf_token%}
+    {{ form.as_p }}
+    
+    <button type="submit">enviar</button>
+</form>
+{% endblock %}
