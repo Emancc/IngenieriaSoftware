@@ -1,0 +1,18 @@
+{% extends 'holamundo/base.html' %}
+<!-- url/tareas-->
+{% block body %}
+<h1>Eliminar tarea</h1>
+<form method="post">
+    {%csrf_token%}
+    <div>
+        <h2>¿Estas seguro de eliminar la tarea?</h2>
+    </div>
+    <h3>
+
+        {{ tarea }}
+    </h3>
+    
+    <button type="submit">Si, eliminar</button>
+    <a href="{%url 'tareas'%}">No, volver</button>
+</form>
+{% endblock %}

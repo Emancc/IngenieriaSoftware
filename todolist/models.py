@@ -30,6 +30,9 @@ class Tarea(models.Model):
     etiquetas = models.ManyToManyField(
         Etiqueta, default=None, blank=True, null=True, related_name="etiquetas"
     )
+    activo = models.BooleanField(
+        default=True, help_text="Verdadero si NO esta archivada la tarea "
+    )
 
     def __str__(self):
         return f"Soy la tarea {self.nombre}"

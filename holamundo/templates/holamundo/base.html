@@ -1,4 +1,4 @@
-{% load static %}
+{%load static%}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,10 +10,12 @@
 <body>
     <nav class="navegador">
         <h2>NAVEGADOR</h2>
-        <a href="{%url 'saludo'%}">Saludo</a>
-        <a href="{% url 'despedida' %}">Despedida</a>
-        <a href="{%url 'tareas' %}">Tareas</a>
-        <a href="{%url 'admin:index' %}">Admin</a>
+        <div>
+            <a href="{%url 'saludo'%}">Saludo</a>
+            <a href="{% url 'despedida' %}">Despedida</a>
+            <a href="{%url 'tareas' %}">Tareas</a>
+            <a href="{%url 'admin:index' %}">Admin</a>
+        </div>
     </nav>
     {% block body %}
     <!-- Contenido específico de cada página -->
