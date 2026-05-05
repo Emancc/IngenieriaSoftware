@@ -1,15 +1,17 @@
 {%load static%}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'holamundo/styles.css' %}">
-    <title>Document</title> 
+    <title>Document</title>
 </head>
+
 <body>
     <nav class="navegador">
-        <h2>NAVEGADOR</h2>
+        <img src="{% static 'holamundo/itec-logo.png'%}" alt="itec-logo">
         <div>
             <a href="{%url 'saludo'%}">Saludo</a>
             <a href="{% url 'despedida' %}">Despedida</a>
@@ -21,4 +23,5 @@
     <!-- Contenido específico de cada página -->
     {% endblock %}
 </body>
+
 </html>

@@ -7,16 +7,15 @@ from .forms import TareaForm
 # Create your views here.
 def tareas(request):
 
-    tareas = Tarea.objects.filter(activo=True).order_by(
-        "-id"
-    )  # lo trae desde el ultimo al primero
+    tareas = Tarea.objects.filter(activo=True)
+    # .orderby(-id) lo trae desde el ultimo al primero
     return render(request, "todolist/index.html", {"tareas": tareas})
 
 
 def crear_tarea(request):
     if request.method == "POST":
         # logica de agregar a la base de datos
-        form = TareaForm(request.POST)
+        form = TareaForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect("tareas")
@@ -32,7 +31,7 @@ def editar_tarea(request, id):
     tarea = get_object_or_404(Tarea, id=id)
 
     if request.method == "POST":
-        form = TareaForm(request.POST, instance=tarea)
+        form = TareaForm(request.POST, request.FILES, instance=tarea)
         if form.is_valid():
             form.save()
             return redirect("tareas")

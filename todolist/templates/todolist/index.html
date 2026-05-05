@@ -3,17 +3,31 @@
 {% block body %}
 <h1>Lista de Tareas</h1>
 <ul>
+
   <a class="nueva" href="{%url 'crear_tarea' %}">Nueva Tarea...</a>
 
   <hr>
+  <div class="contenedor">
 
-  {% for tarea in tareas %}
-  <li><span>Tarea:</span> {{tarea.nombre}} <br><span>Completada:</span> {{tarea.completada}} <br><span>Responsable:</span> {{tarea.responsable.username}} <br><span>Etiquetas:</span> {{tarea.etiquetas}} <br><span>Activo</span> {{tarea.activo}}</li>
-  <a class="editar" href="{%url 'editar_tarea' tarea.id %}">Editar tarea ...</a>
-  <a class="eliminar" href="{%url 'eliminar_tarea' tarea.id %}">Eliminar tarea ...</a>
 
-  <hr />
-  {% endfor %}
+    {% for tarea in tareas %}
+    <div class="tarjeta">
+
+      {% if tarea.imagen %}
+      <img src="{{tarea.imagen.url}}" alt="imagen {{tarea.nombre}}" width="200">
+      {% endif %}
+      <li><span>Tarea:</span> {{tarea.nombre_mayuscula}} <br><span>Completada:</span> {{tarea.completada}}
+        <br><span>Responsable:</span> {{tarea.responsable.username}} <br><span>Etiquetas:</span> {{tarea.etiquetas}}
+        <br><span>Activo</span> {{tarea.activo}}
+      </li>
+      <div>
+
+        <a class="editar" href="{%url 'editar_tarea' tarea.id %}">Editar tarea ...</a>
+        <a class="eliminar" href="{%url 'eliminar_tarea' tarea.id %}">Eliminar tarea ...</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
 </ul>
 
 {% endblock %}
