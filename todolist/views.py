@@ -1,10 +1,26 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from datetime import date
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import login
+from django.contrib.auth.forms import UserCreationForm
 from .models import Tarea
 from .forms import TareaForm
 
 
+# creacion de registros
+def registrarse(request):
+    if request.method == "POST":
+        form = UserCreationForm(request.POST)
+        if form.is_valid():
+            usuario = form.save()
+            login(request, usuario)
+            return redirect("tareas")
+    else:
+        form = UserCreationForm()
+    return render(request, "registration/register.html", {"form": form})
+
+
 # Create your views here.
+@login_required
 def tareas(request):
 
     tareas = Tarea.objects.filter(activo=True)
@@ -12,6 +28,7 @@ def tareas(request):
     return render(request, "todolist/index.html", {"tareas": tareas})
 
 
+@login_required
 def crear_tarea(request):
     if request.method == "POST":
         # logica de agregar a la base de datos
@@ -26,6 +43,7 @@ def crear_tarea(request):
 
 # Parametro Ruta: url.com/tarea/5
 # Query Param: url.com/tarea?clave=valor&clave_dos=valor&clave_tres=valor
+@login_required
 def editar_tarea(request, id):
 
     tarea = get_object_or_404(Tarea, id=id)
@@ -41,6 +59,7 @@ def editar_tarea(request, id):
     return render(request, "todolist/editar_tarea.html", {"form": form})
 
 
+@login_required
 def eliminar_tarea(request, id):
     tarea = get_object_or_404(Tarea, id=id)
 

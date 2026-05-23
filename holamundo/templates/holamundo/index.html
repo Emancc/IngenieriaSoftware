@@ -1,13 +1,13 @@
 {% extends 'holamundo/base.html' %}
 
 {% block body %}
-    <h1>ESTA ES LA PAGINA DE SALUDO HOLA <span>{{nombre}}</span></h1>
-    <h2>Estas son todas las tareas:</h2>
-    <ul>
-        {% for tarea in tareas %}
-            <li>{{tarea}}</li>
-        {% endfor %}
-    </ul>
+<h1>Hola!!! <span>{{user.username}}</span>😁</h1>
+<h2>Estas son todas las tareas:</h2>
+<ul>
+    {% for tarea in tareas %}
+    <li>{{tarea}}</li>
+    {% endfor %}
+</ul>
 
-    <p>fin</p>
+<p>fin</p>
 {% endblock %}

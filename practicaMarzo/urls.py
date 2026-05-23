@@ -8,6 +8,7 @@ urlpatterns = [
     path("", include("holamundo.urls")),
     path("tareas/", include("todolist.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
+    path("accounts/", include("django.contrib.auth.urls")),
 ]
 
 

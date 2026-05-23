@@ -59,7 +59,7 @@ ROOT_URLCONF = "practicaMarzo.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -70,6 +70,9 @@ TEMPLATES = [
         },
     },
 ]
+
+LOGIN_REDIRECT_URL = "saludo"
+LOGOUT_REDIRECT_URL = "saludo"
 
 WSGI_APPLICATION = "practicaMarzo.wsgi.application"
 
