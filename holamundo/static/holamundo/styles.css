@@ -29,13 +29,13 @@ nav {
   flex-direction: row;
   gap: 4px;
 }
-.navegador div a {
+.navegador div a, button {
   background-color: rgb(72, 72, 72);
   color: white;
   padding: 1rem;
   border-radius: 2rem;
 }
-.navegador div a:hover {
+.navegador div a:hover, button:hover {
   background-color: rgb(102, 100, 63);
 }
 
@@ -126,4 +126,23 @@ li span {
   background-color: #d6ae9e;
   transform: scale(1.025);
   
+}
+.cajaperfil{
+  width: 100px;
+  height: 100px;
+  overflow:hidden;
+  border-radius:50%;
+  border:5px,solid,#ffffff;
+}
+.perfil{
+  width: 100%;
+  object-fit:scale-down;
+
+}
+.cajota{
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex-wrap: wrap;
 }

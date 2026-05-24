@@ -1,5 +1,5 @@
-from django.contrib.auth.models import User
 from django.db import models
+from django.conf import settings
 
 
 class Etiqueta(models.Model):
@@ -20,7 +20,7 @@ class Tarea(models.Model):
     fecha_completada = models.DateField()
     fecha_creacion = models.DateTimeField(auto_now=True)
     responsable = models.ForeignKey(
-        User,
+        settings.AUTH_USER_MODEL,
         on_delete=models.CASCADE,
         related_name="responsable",
         default=None,

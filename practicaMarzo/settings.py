@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "holamundo",
     "todolist",
+    "usuarios",
     "django_browser_reload",
 ]
 
@@ -105,6 +106,8 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
+
+AUTH_USER_MODEL = "usuarios.UsuarioPersonalizado"
 
 
 # Internationalization

@@ -1,26 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth.decorators import login_required
-from django.contrib.auth import login
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required, permission_required
+
 from .models import Tarea
 from .forms import TareaForm
 
 
-# creacion de registros
-def registrarse(request):
-    if request.method == "POST":
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            usuario = form.save()
-            login(request, usuario)
-            return redirect("tareas")
-    else:
-        form = UserCreationForm()
-    return render(request, "registration/register.html", {"form": form})
-
-
 # Create your views here.
 @login_required
+@permission_required("todolist.view_tarea")
 def tareas(request):
 
     tareas = Tarea.objects.filter(activo=True)
@@ -29,6 +16,7 @@ def tareas(request):
 
 
 @login_required
+@permission_required("todolist.add_tarea")  # nombre_app.action_modelo
 def crear_tarea(request):
     if request.method == "POST":
         # logica de agregar a la base de datos
@@ -44,6 +32,7 @@ def crear_tarea(request):
 # Parametro Ruta: url.com/tarea/5
 # Query Param: url.com/tarea?clave=valor&clave_dos=valor&clave_tres=valor
 @login_required
+@permission_required("todolist.change_tarea")  # nombre_app.action_modelo
 def editar_tarea(request, id):
 
     tarea = get_object_or_404(Tarea, id=id)
@@ -60,6 +49,7 @@ def editar_tarea(request, id):
 
 
 @login_required
+@permission_required("todolist.delete_tarea")  # nombre_app.action_modelo
 def eliminar_tarea(request, id):
     tarea = get_object_or_404(Tarea, id=id)
 
