@@ -28,11 +28,11 @@
                 <img class="perfil" src="{{user.foto_perfil.url}}" alt="imagen {{user.nombre}}">
                 {% endif %}
             </div>
-            <div>
+            <div class="datos">
 
                 <form action="{%url 'logout' %}" method="post">
                     {%csrf_token%}
-                    <p>Bienvenido {{user.username}} </p>
+                    <p>Bienvenido<br><span>{{user.username}}</span></p>
                     <button type="submit">Cerrar sesion</button>
                 </form>
             </div>
