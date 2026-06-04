@@ -11,6 +11,7 @@
 
 <body>
     <nav class="navegador">
+        <p>{{ year }} Todos los derechos reservados</p>
         <img src="{% static 'holamundo/itec-logo.png'%}" alt="itec-logo">
 
         <div>
@@ -32,13 +33,14 @@
 
                 <form action="{%url 'logout' %}" method="post">
                     {%csrf_token%}
-                    <p>Bienvenido<br><span>{{user.username}}</span></p>
+                    <p>{{mensaje_bienvenida}}</p>
                     <button type="submit">Cerrar sesion</button>
                 </form>
             </div>
         </div>
         {%else%}
-        <div>
+        <div class="cajota">
+            {{mensaje_bienvenida}}
             <a href="{%url 'login' %}">Login</a>
         </div>
         {%endif%}

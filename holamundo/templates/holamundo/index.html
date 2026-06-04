@@ -3,6 +3,10 @@
 {% block body %}
 <h1>Hola!!! <span>{{user.username}}</span>😁</h1>
 <h2>Estas son todas las tareas:</h2>
+{% for etiqueta in etiquetas_populares %}
+<span>{{etiqueta.nombre}}</span><br>
+{% endfor %}
+
 <ul>
     {% for tarea in tareas %}
     <li>{{tarea}}</li>

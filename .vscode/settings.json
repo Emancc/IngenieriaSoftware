@@ -1,0 +1,10 @@
+{
+    "jinja2-html-enhancer.customVariables": {
+        "d:\\Programacion-2026\\ingenieria-software\\comisionPractica31marzo\\todolist\\templates\\todolist\\index.html": [
+            "year"
+        ],
+        "d:\\Programacion-2026\\ingenieria-software\\comisionPractica31marzo\\holamundo\\templates\\holamundo\\base.html": [
+            "year"
+        ]
+    }
+}
