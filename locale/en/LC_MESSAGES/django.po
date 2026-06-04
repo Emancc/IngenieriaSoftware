@@ -1,0 +1,66 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-04 14:57-0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\practicaMarzo\context_processors.py:16
+msgid "Bienvenido a mi sitio web! Logeate!!"
+msgstr "Welcome to my site!! Log in Now!!"
+
+#: .\practicaMarzo\settings.py:123
+msgid "Español"
+msgstr "Spanish"
+
+#: .\practicaMarzo\settings.py:123
+msgid "English"
+msgstr "English"
+
+#: .\todolist\models.py:15
+msgid "Nombre de la Tarea"
+msgstr "Task Name"
+
+#: .\todolist\models.py:17
+msgid "Tarea completada"
+msgstr "Completed Task"
+
+#: .\todolist\models.py:19
+msgid "la tarea se ha completada o no"
+msgstr "the task is completed?"
+
+#: .\todolist\models.py:21
+msgid "fecha de completado"
+msgstr "completed date"
+
+#: .\todolist\models.py:30
+msgid "Persona responsable de la tarea"
+msgstr " person responsable of the task"
+
+#: .\todolist\models.py:47
+msgid "Tareas de proyecto"
+msgstr "Task of the proyect"
+
+#: .\todolist\models.py:48
+msgid "Tareas de los proyectos"
+msgstr "Task of the proyects"
+
+#: .\todolist\templates\todolist\index.html:5
+msgid "Lista de Tareas"
+msgstr "Task list"
+
+#: .\todolist\templates\todolist\index.html:8
+msgid "Nueva Tarea..."
+msgstr "New Task"

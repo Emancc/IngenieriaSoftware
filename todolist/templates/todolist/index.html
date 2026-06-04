@@ -1,10 +1,11 @@
 {% extends 'holamundo/base.html' %}
+{% load i18n %}
 <!-- url/tareas-->
 {% block body %}
-<h1>Lista de Tareas - {{ year }}</h1>
+<h1>{% translate "Lista de Tareas" %} - {{ year }}</h1>
 <ul>
 
-  <a class="nueva" href="{%url 'crear_tarea' %}">Nueva Tarea...</a>
+  <a class="nueva" href="{%url 'crear_tarea' %}">{% translate "Nueva Tarea..." %}</a>
 
   <hr>
   <div class="contenedor">
