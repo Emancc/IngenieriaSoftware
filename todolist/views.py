@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.views.generic import ListView, UpdateView, DeleteView, CreateView
+from django.urls import reverse_lazy
 
 from .models import Tarea
 from .forms import TareaForm
@@ -59,6 +62,39 @@ def eliminar_tarea(request, id):
         tarea.save()
         return redirect("tareas")
     return render(request, "todolist/eliminar_tarea.html", {"tarea": tarea})
+
+    # -----Vistas basadas en clases (cbv)-------
+
+
+class GetTareas(LoginRequiredMixin, ListView):  # get_all.Tarea()
+    model = Tarea
+    template_name = "todolist/index.html"
+    context_object_name = "tareas"  # nombre de los datos en el template
+
+
+class CreateTarea(LoginRequiredMixin, PermissionRequiredMixin, CreateView):
+    model = Tarea
+    template_name = "todolist/crear_tarea.html"
+    form_class = TareaForm
+    success_url = reverse_lazy("tareas")
+    permission_required = "todolist.add_tarea"
+
+
+# get tarea by id: detailview
+class UpdateTareas(LoginRequiredMixin, PermissionRequiredMixin, UpdateView):
+    model = Tarea
+    template_name = "todolist/editar_tarea.html"
+    form_class = TareaForm
+    success_url = reverse_lazy("tareas")  # optimizar
+    permission_required = "todolist.change_tarea"
+
+
+class DeleteTarea(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+    model = Tarea
+    template_name = "todolist/eliminar_tarea.html"
+    success_url = reverse_lazy("tareas")
+    permission_required = "todolist.delete_tarea"
+
     """
     # LOOKUPS -Obtencion de datos desde la orm
     # excluciones
